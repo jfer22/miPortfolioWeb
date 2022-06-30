@@ -15,7 +15,7 @@ export class UserService {
     private httpClient: HttpClient
     ) { }
  
-  //Methods
+  //GET LISTA COMPLETA
   findAllUsers(): Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.backendURL}/ver/personas`);
   }
@@ -35,6 +35,7 @@ export class UserService {
     return this.httpClient.delete(`${this.backendURL}/delete/${id}`);
   }
 
+  //GET UN SOLO CLIENTE
   getUserById(id: number): Observable<User>{
     return this.httpClient.get<User>(`${this.backendURL}/update/${id}`);
   }
