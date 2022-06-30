@@ -1,0 +1,31 @@
+<!--Usamos Binging de angular para llamar al método del .ts asociado-->
+<!--La sintaxis [()] BananaInBox es un Two-Way Binding-->
+<form (ngSubmit) = "onSubmitForm()">
+     
+    <div class="form-group">
+        <label> Name</label>
+        <input type="text" class ="form-control" id = "nombre"
+            [(ngModel)] = "user.nombre" name = "nombre">
+    </div>
+ 
+    <div class="form-group">
+        <label> Email</label>
+        <input type="text" class ="form-control" id = "email"
+            [(ngModel)] = "user.email" name = "email">
+    </div>
+ 
+    <div class="form-group">
+        <label> Age</label>
+        <input type="text" class ="form-control" id = "edad"
+            [(ngModel)] = "user.edad" name = "edad">
+    </div>
+
+    <div class="form-group">
+        <label> Language</label>
+        <input type="text" class ="form-control" id = "idioma"
+            [(ngModel)] = "user.idioma" name = "idioma">
+    </div>
+ 
+    <button class = "btn btn-success" type ="submit">Submit</button>
+ 
+</form>
