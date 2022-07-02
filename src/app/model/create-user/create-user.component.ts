@@ -40,6 +40,6 @@ export class CreateUserComponent implements OnInit {
  
   //Redirección a lista de usuarios
   redirectUserList(){
-    this.router.navigate(['/userlist']);
+    this.router.navigate(['/header']);
   }
 }

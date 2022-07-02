@@ -7,6 +7,7 @@ import { UserListComponent } from './model/user-list/user-list.component';
 import { CreateUserComponent } from './model/create-user/create-user.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './model/update-user/update-user.component';
+import { HeaderComponent } from './model/header/header.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { UpdateUserComponent } from './model/update-user/update-user.component';
     UserListComponent,
     CreateUserComponent,
     UpdateUserComponent,
+    HeaderComponent,
     
   ],
   imports: [
