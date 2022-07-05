@@ -4,19 +4,25 @@
         <a routerLink="header" routerLinkActive="active" class="nav-link" >Home</a>
     </li>
     <li class = "nav-item">
-        <a routerLink="userlist" routerLinkActive="active" class="nav-link" >Experiencia</a>
+        <a routerLink="explist" routerLinkActive="active" class="nav-link" >Experiencia</a>
     </li>
     <li class = "nav-item">
-        <a routerLink="userlist" routerLinkActive="active" class="nav-link" >Educación</a>
+        <a routerLink="edulist" routerLinkActive="active" class="nav-link" >Educación</a>
     </li>
     <li class = "nav-item">
-        <a routerLink="userlist" routerLinkActive="active" class="nav-link" >Habilidades</a>
+        <a routerLink="" routerLinkActive="active" class="nav-link" >Habilidades</a>
+    </li>
+    <li class = "nav-item">
+        <a routerLink="userlist" routerLinkActive="active" class="nav-link" >Lista de Usuarios</a>
     </li>
     <li class = "nav-item">
         <a routerLink="createuser" routerLinkActive="active" class="nav-link" >Create User</a>
     </li>
     <li class = "nav-item">
         <a routerLink="createexp" routerLinkActive="active" class="nav-link" >Crear Experiencia</a>
+    </li>
+    <li class = "nav-item">
+        <a routerLink="createedu" routerLinkActive="active" class="nav-link" >Crear Educacion</a>
     </li>
   </ul>
 </nav>
@@ -25,10 +31,7 @@
 
 <!-- app-routing redirige los contenidos definidos en su archivo .ts-->
 <div class="container">
-    <app-header></app-header>
-    <app-exp-list></app-exp-list>
-    <!--<router-outlet></router-outlet>-->
-    
-    
+    <!--<app-header></app-header>-->
+    <router-outlet></router-outlet>
 </div>
 

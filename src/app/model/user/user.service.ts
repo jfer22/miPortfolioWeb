@@ -32,7 +32,7 @@ export class UserService {
  
   //DELETE
   deleteUser(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.backendURL}/delete/${id}`);
+    return this.httpClient.delete(`${this.backendURL}/deleteUser/${id}`);
   }
 
   //GET UN SOLO CLIENTE

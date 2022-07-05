@@ -32,7 +32,7 @@ export class ExpService {
  
   //DELETE
   deleteExp(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.backendURL}/delete/${id}`);
+    return this.httpClient.delete(`${this.backendURL}/deleteExp/${id}`);
   }
 
   //GET UN SOLO CLIENTE

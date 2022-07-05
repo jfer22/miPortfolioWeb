@@ -10,6 +10,8 @@ import { UpdateUserComponent } from './model/update-user/update-user.component';
 import { HeaderComponent } from './model/header/header.component';
 import { ExpListComponent } from './model/exp-list/exp-list.component';
 import { CreateExpComponent } from './model/create-exp/create-exp.component';
+import { EduListComponent } from './model/edu-list/edu-list.component';
+import { CreateEduComponent } from './model/create-edu/create-edu.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { CreateExpComponent } from './model/create-exp/create-exp.component';
     HeaderComponent,
     ExpListComponent,
     CreateExpComponent,
+    EduListComponent,
+    CreateEduComponent,
     
   ],
   imports: [

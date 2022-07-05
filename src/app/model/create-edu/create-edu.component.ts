@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Exp } from '../exp/exp';
-import { ExpService } from '../exp/exp.service';
+import { Edu } from '../edu/edu';
+import { EduService } from '../edu/edu.service';
 
 @Component({
-  selector: 'app-create-exp',
-  templateUrl: './create-exp.component.html',
-  styleUrls: ['./create-exp.component.css']
+  selector: 'app-create-edu',
+  templateUrl: './create-edu.component.html',
+  styleUrls: ['./create-edu.component.css']
 })
-export class CreateExpComponent implements OnInit {
+export class CreateEduComponent implements OnInit {
 
   //Cramos un nuevo usuario vacío
-  exp: Exp = new Exp();
+  edu: Edu = new Edu();
  
   constructor(
-    private expSerice: ExpService,
+    private eduSerice: EduService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -23,23 +23,23 @@ export class CreateExpComponent implements OnInit {
   //Este método es llamado desde el formulario
   //Se encarga de disparar el método de guardado de usuarios
   onSubmitForm(){
-    console.log(this.exp);
-    this.commitExp();
+    console.log(this.edu);
+    this.commitEdu();
   }
  
   //Este método llama al createUser de userService.
-  commitExp(){
-    this.expSerice.createExp(this.exp).subscribe( 
-      expData =>{
-        console.log(expData);
+  commitEdu(){
+    this.eduSerice.createEdu(this.edu).subscribe( 
+      eduData =>{
+        console.log(eduData);
         //Llamamos al método de redirección para volver a la lista de usuarios
-        this.redirectExpList();
+        this.redirectEduList();
       },
       error => console.log(error));
   }
  
   //Redirección a lista de usuarios
-  redirectExpList(){
+  redirectEduList(){
     this.router.navigate(['']);
   }
 
