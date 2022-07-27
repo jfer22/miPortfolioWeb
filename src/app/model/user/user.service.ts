@@ -14,7 +14,8 @@ export class UserService {
     //HttpClient para proporcionar métodos que reciben datos del backend
     private httpClient: HttpClient
     ) { }
- 
+
+  
   //GET LISTA COMPLETA
   findAllUsers(): Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.backendURL}/ver/personas`);
@@ -39,4 +40,12 @@ export class UserService {
   getUserById(id: number): Observable<User>{
     return this.httpClient.get<User>(`${this.backendURL}/update/${id}`);
   }
+
+  //GET UN SOLO CLIENTE
+  findByEmailAndContrasena(email: String, contrasena: String): Observable<User>{
+    return this.httpClient.get<User>(`${this.backendURL}/login/${email}/${contrasena}`);
+  }
+
+  
+  
 }

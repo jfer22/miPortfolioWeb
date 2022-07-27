@@ -1,0 +1,17 @@
+<div class="col-sm-6 offset-sm-3">
+    <h3> Actualizar Educación </h3>
+
+    <!--Usamos Binging de angular para llamar al método del .ts asociado-->
+    <!--La sintaxis [()] BananaInBox es un Two-Way Binding-->
+    <form (ngSubmit) = "onSubmitForm()">
+    
+        <div class="form-group">
+            <label> Educación</label>
+            <input type="text" class ="form-control" id = "educacion"
+                [(ngModel)] = "edu.educacion" name = "educacion">
+        </div>
+    
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+</div> 

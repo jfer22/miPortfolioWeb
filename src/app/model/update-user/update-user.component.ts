@@ -12,7 +12,7 @@ export class UpdateUserComponent implements OnInit {
 
   user: User = new User();
   id: number = 0;
-
+  
   /*
   * ActivatedRoute: Provides access to information about a route associated with a component
   * that is loaded in an outlet.
@@ -49,6 +49,6 @@ export class UpdateUserComponent implements OnInit {
 
   //Redirección a lista de usuarios
   redirectUserList(){
-    this.router.navigate(['/header']);
+    this.router.navigate(['/userlist']);
   }
 }

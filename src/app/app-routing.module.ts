@@ -9,6 +9,9 @@ import { CreateExpComponent } from './model/create-exp/create-exp.component';
 import { EduListComponent } from './model/edu-list/edu-list.component';
 import { ExpListComponent } from './model/exp-list/exp-list.component';
 import { HeaderComponent } from './model/header/header.component';
+import { LoginComponent } from './model/login/login.component';
+import { UpdateEduComponent } from './model/update-edu/update-edu.component';
+import { UpdateExpComponent } from './model/update-exp/update-exp.component';
 import { UserListComponent } from './model/user-list/user-list.component';
 //import { UserDetailsComponent } from 'src/model/user-details/user-details.component';
 
@@ -21,11 +24,14 @@ const routes: Routes = [
   {path: 'createedu', component: CreateEduComponent},
   //{path: 'searchuser', component: SearchUserComponent},
   {path: 'updateuser/:id', component: UpdateUserComponent},
+  {path: 'updateexp/:id', component: UpdateExpComponent},
+  {path: 'updateedu/:id', component: UpdateEduComponent},
   //{path: 'userdetails/:id', component: UserDetailsComponent},
   //{path: 'about', component: AboutComponent}
   {path: 'userlist', component: UserListComponent},
   {path: 'explist', component: ExpListComponent},
   {path: 'edulist', component: EduListComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

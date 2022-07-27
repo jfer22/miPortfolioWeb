@@ -28,7 +28,7 @@ export class EduService {
 
   //PUT
   updateEdu(id: number, edu: Edu): Observable<Object>{
-    return this.httpClient.put(`${this.backendURL}/update/${id}`, edu);
+    return this.httpClient.put(`${this.backendURL}/updateEdu/${id}`, edu);
   }
  
   //DELETE
@@ -38,6 +38,6 @@ export class EduService {
 
   //GET UN SOLO CLIENTE
   getEduById(id: number): Observable<Edu>{
-    return this.httpClient.get<Edu>(`${this.backendURL}/update/${id}`);
+    return this.httpClient.get<Edu>(`${this.backendURL}/updateEdu/${id}`);
   }
 }

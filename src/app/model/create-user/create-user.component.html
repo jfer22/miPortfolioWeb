@@ -15,17 +15,40 @@
     </div>
  
     <div class="form-group">
-        <label> Age</label>
-        <input type="text" class ="form-control" id = "edad"
-            [(ngModel)] = "user.edad" name = "edad">
+        <label> Contraseña</label>
+        <input type="text" class ="form-control" id = "contrasena"
+            [(ngModel)] = "user.contrasena" name = "contrasena">
     </div>
 
-    <div class="form-group">
-        <label> Language</label>
-        <input type="text" class ="form-control" id = "idioma"
-            [(ngModel)] = "user.idioma" name = "idioma">
-    </div>
- 
     <button class = "btn btn-success" type ="submit">Submit</button>
  
 </form>
+
+<h3> Usuarios</h3>
+<a routerLink="../userlist" routerLinkActive="active" class="nav-link" >Volver</a>
+<table class = "table table-sm">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <!-- El bucle recorre cada usuario de users-->
+    <!-- Este archivo html está asociado a su respectivo .ts -->
+    <!-- users es una propiedad definida en el .ts users: User[]-->
+    <tbody>
+        <tr *ngFor = "let u of users">
+            <!-- {{}} Es interpolación para acceder a los campos -->
+            <td>{{u.id}}</td>
+            <td>{{u.nombre}}</td>
+            <td>{{u.email}}</td>
+            <td>
+                <!--Estos botones llaman a los métodos definidos en el .ts del componente user-list-->
+                <button (click) = "updateUser(u.id)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteUser(u.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

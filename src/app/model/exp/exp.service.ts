@@ -21,13 +21,13 @@ export class ExpService {
   }
 
   //POST
-  createExp(user: Exp): Observable<Object>{
-    return this.httpClient.post(`${this.backendURL}/new/experiencia`, user);
+  createExp(exp: Exp): Observable<Object>{
+    return this.httpClient.post(`${this.backendURL}/new/experiencia`, exp);
   }
 
   //PUT
   updateExp(id: number, exp: Exp): Observable<Object>{
-    return this.httpClient.put(`${this.backendURL}/update/${id}`, exp);
+    return this.httpClient.put(`${this.backendURL}/updateExp/${id}`, exp);
   }
  
   //DELETE
@@ -37,6 +37,6 @@ export class ExpService {
 
   //GET UN SOLO CLIENTE
   getExpById(id: number): Observable<Exp>{
-    return this.httpClient.get<Exp>(`${this.backendURL}/update/${id}`);
+    return this.httpClient.get<Exp>(`${this.backendURL}/updateExp/${id}`);
   }
 }

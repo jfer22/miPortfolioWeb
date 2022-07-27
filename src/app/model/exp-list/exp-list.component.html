@@ -1,26 +1,16 @@
+
 <h3> Experiencias</h3>
+
 <table class = "table table-sm">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Experiencia</th>
-           
-        </tr>
-    </thead>
+    
     <!-- El bucle recorre cada usuario de users-->
     <!-- Este archivo html está asociado a su respectivo .ts -->
     <!-- users es una propiedad definida en el .ts users: User[]-->
     <tbody>
         <tr *ngFor = "let u of exps">
             <!-- {{}} Es interpolación para acceder a los campos -->
-            <td>{{u.id}}</td>
-            <td>{{u.experiencia}}</td>
             
-            <td>
-                <!--Estos botones llaman a los métodos definidos en el .ts del componente user-list-->
-                <button (click) = "updateExp(u.id)" class = "btn btn-info"> Update</button>
-                <button (click) = "deleteExp(u.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-            </td>
+            <td>{{u.experiencia}}</td>
         </tr>
     </tbody>
 </table>

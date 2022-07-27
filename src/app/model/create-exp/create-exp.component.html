@@ -3,11 +3,40 @@
 <form (ngSubmit) = "onSubmitForm()">
      
     <div class="form-group">
-        <label> Experiencia</label>
+        <label> Crear/Editar Experiencia</label>
         <input type="text" class ="form-control" id = "experiencia"
             [(ngModel)] = "exp.experiencia" name = "experiencia">
     </div>
  
     <button class = "btn btn-success" type ="submit">Submit</button>
+    <a routerLink="../userlist" routerLinkActive="active" class="nav-link" >Volver</a>
  
 </form>
+
+<h3> Experiencias</h3>
+
+<table class = "table table-sm">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Experiencia</th>
+           
+        </tr>
+    </thead>
+    <!-- El bucle recorre cada usuario de users-->
+    <!-- Este archivo html está asociado a su respectivo .ts -->
+    <!-- users es una propiedad definida en el .ts users: User[]-->
+    <tbody>
+        <tr *ngFor = "let u of exps">
+            <!-- {{}} Es interpolación para acceder a los campos -->
+            <td>{{u.id}}</td>
+            <td>{{u.experiencia}}</td>
+            
+            <td>
+                <!--Estos botones llaman a los métodos definidos en el .ts del componente user-list-->
+                <button (click) = "updateExp(u.id)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteExp(u.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

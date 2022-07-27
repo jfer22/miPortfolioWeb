@@ -1,0 +1,30 @@
+<div class="container" style="background-image: url('./assets/img/7678.jpg_300.jpg'); width:1200px; height: 300px;">
+  <a class="navbar-brand" href="#">
+      <img alt="My image name" src="./assets/img/FB-Argentina-Programa-Plan.jpg" style="width: 20%">
+      <h5 style="color:aliceblue">  Argentina Programa #YoProgramo</h5>
+      
+      
+  </a>
+  <div class="col-sm-6 offset-sm-3" style="margin-top: 200px">
+    <h3> Login </h3>
+    
+    <!--Usamos Binging de angular para llamar al método del .ts asociado-->
+    <!--La sintaxis [()] BananaInBox es un Two-Way Binding-->
+    <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
+  
+      <div class="form-group">
+        <label> Email</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
+      </div>
+  
+      <div class="form-group">
+        <label> Contraseña</label>
+        <input type="text" class="form-control" id="contrasena" [(ngModel)]="user.contrasena" name="contrasena">
+      </div>
+  
+      <button class="btn btn-success" type="submit">Submit</button>
+  
+    </form>
+  </div>
+</div>
+

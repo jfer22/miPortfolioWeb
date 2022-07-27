@@ -6,8 +6,8 @@
     <form (ngSubmit) = "onSubmitForm()">
     
         <div class="form-group">
-            <label> Name</label>
-            <input type="text" class ="form-control" id = "name"
+            <label> Nombre</label>
+            <input type="text" class ="form-control" id = "nombre"
                 [(ngModel)] = "user.nombre" name = "nombre">
         </div>
     
@@ -18,15 +18,9 @@
         </div>
     
         <div class="form-group">
-            <label> Age</label>
-            <input type="text" class ="form-control" id = "age"
-                [(ngModel)] = "user.edad" name = "edad">
-        </div>
-
-        <div class="form-group">
-            <label> Language</label>
-            <input type="text" class ="form-control" id = "language"
-                [(ngModel)] = "user.idioma" name = "idioma">
+            <label> Contraseña</label>
+            <input type="text" class ="form-control" id = "contrasena"
+                [(ngModel)] = "user.contrasena" name = "contrasena">
         </div>
     
         <button class = "btn btn-success" type ="submit">Submit</button>

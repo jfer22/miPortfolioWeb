@@ -12,12 +12,14 @@ export class CreateUserComponent implements OnInit {
  
   //Cramos un nuevo usuario vacío
   user: User = new User();
+  users: User[] = [];
  
   constructor(
-    private userSerice: UserService,
+    private userService: UserService,
     private router: Router) { }
  
   ngOnInit(): void {
+    this.getUsers();
   }
  
   //Este método es llamado desde el formulario
@@ -29,7 +31,7 @@ export class CreateUserComponent implements OnInit {
  
   //Este método llama al createUser de userService.
   commitUser(){
-    this.userSerice.createUser(this.user).subscribe( 
+    this.userService.createUser(this.user).subscribe( 
       userData =>{
         console.log(userData);
         //Llamamos al método de redirección para volver a la lista de usuarios
@@ -40,6 +42,28 @@ export class CreateUserComponent implements OnInit {
  
   //Redirección a lista de usuarios
   redirectUserList(){
-    this.router.navigate(['/header']);
+    this.router.navigate(['/userlist']);
+  }
+
+  private getUsers(){
+    //Utilizamos el servicio inyectado para encontrar los usuarios
+    this.userService.findAllUsers().subscribe(
+      //Arrow function, funcion anónima similar a expersiones Lambda
+      userData => {this.users = userData}
+    );
+  }
+
+  updateUser(id: number){
+    //Lo envía a través de app-routing.module.ts
+    this.router.navigate(['updateuser', id]);
+  }
+
+  deleteUser(id: number){
+    this.userService.deleteUser(id).subscribe( 
+      userData => {
+      console.log(userData);
+      //Volvemos a recuperar los Users tras el borrado
+      this.getUsers();
+    })
   }
 }

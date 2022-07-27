@@ -11,6 +11,7 @@ import { ExpService } from '../exp/exp.service';
 export class ExpListComponent implements OnInit {
 
   exps: Exp[] = []
+  
 
   constructor(
     //Inyectamos el UserService que hemos importado
@@ -21,7 +22,8 @@ export class ExpListComponent implements OnInit {
   //De la documentación: A lifecycle hook that is called after Angular 
   //has initialized all data-bound properties of a directive.
   ngOnInit(): void {
-    this.getExps();
+      this.getExps();
+    
   }
 
   private getExps(){
@@ -45,4 +47,6 @@ export class ExpListComponent implements OnInit {
       this.getExps();
     })
   }
+
+  
 }

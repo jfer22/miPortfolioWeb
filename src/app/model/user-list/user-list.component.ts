@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../user/user';
 import { UserService } from '../user/user.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-user-list',
@@ -10,18 +11,22 @@ import { UserService } from '../user/user.service';
 })
 export class UserListComponent implements OnInit {
 
-  users: User[] = []
-
+  users: User[] = [];
+  
+    
   constructor(
     //Inyectamos el UserService que hemos importado
     private userService : UserService,
-    private router: Router
-  ) { }
+    private router: Router,
+    ) { }
+    
 
   //De la documentación: A lifecycle hook that is called after Angular 
   //has initialized all data-bound properties of a directive.
   ngOnInit(): void {
-    this.getUsers();
+      this.getUsers();
+      
+    
   }
 
   private getUsers(){

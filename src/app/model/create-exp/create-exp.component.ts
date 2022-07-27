@@ -12,12 +12,14 @@ export class CreateExpComponent implements OnInit {
 
   //Cramos un nuevo usuario vacío
   exp: Exp = new Exp();
+  exps: Exp[] = []
  
   constructor(
-    private expSerice: ExpService,
+    private expService: ExpService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.getExps();
   }
 
   //Este método es llamado desde el formulario
@@ -29,7 +31,7 @@ export class CreateExpComponent implements OnInit {
  
   //Este método llama al createUser de userService.
   commitExp(){
-    this.expSerice.createExp(this.exp).subscribe( 
+    this.expService.createExp(this.exp).subscribe( 
       expData =>{
         console.log(expData);
         //Llamamos al método de redirección para volver a la lista de usuarios
@@ -40,7 +42,28 @@ export class CreateExpComponent implements OnInit {
  
   //Redirección a lista de usuarios
   redirectExpList(){
-    this.router.navigate(['']);
+    this.router.navigate(['/userlist']);
   }
 
+  private getExps(){
+    //Utilizamos el servicio inyectado para encontrar los usuarios
+    this.expService.findAllExps().subscribe(
+      //Arrow function, funcion anónima similar a expersiones Lambda
+      expData => {this.exps = expData}
+    );
+  }
+
+  updateExp(id: number){
+    //Lo envía a través de app-routing.module.ts
+    this.router.navigate(['updateexp', id]);
+  }
+
+  deleteExp(id: number){
+    this.expService.deleteExp(id).subscribe( 
+      expData => {
+      console.log(expData);
+      //Volvemos a recuperar los Users tras el borrado
+      this.getExps();
+    })
+  }
 }
