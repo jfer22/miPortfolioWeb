@@ -1,9 +1,28 @@
+<!--Formulario para cargar un nuevo Usuario y mostrar los items existentes en forma de 
+    lista con botones para editarlos o borrarlos-->
+<!--El ngSumbit ejecuta el método onSubmitForm cuando se produce un evento del tipo "submit",
+es decir, cuando se presiona el botón "Enviar" definido como tipo submit-->
+<!--Este método (onSubmitForm), envia al backend el Usuario para grabarlo en la
+base de datos-->
+<!--Los datos en el formulario se intercambian con el archivo ts cuando se realiza el submit-->
+<!--Después de enviar el nuevo valor, vuelve a la lista de usuarios usando routerLink-->
+
 <!--Usamos Binging de angular para llamar al método del .ts asociado-->
 <!--La sintaxis [()] BananaInBox es un Two-Way Binding-->
+
+<!--Barra de navegación-->
+<div class="container">
+    <app-user-list></app-user-list>
+</div>
+
+<!--Formulario para cargar nuevo Usuario-->
+<h3>
+    Agregar Usuario
+</h3>
 <form (ngSubmit) = "onSubmitForm()">
      
     <div class="form-group">
-        <label> Name</label>
+        <label> Nombre</label>
         <input type="text" class ="form-control" id = "nombre"
             [(ngModel)] = "user.nombre" name = "nombre">
     </div>
@@ -21,18 +40,21 @@
     </div>
 
     <button class = "btn btn-success" type ="submit">Submit</button>
- 
+
 </form>
 
+<!--Lista de Usuarios existentes-->
 <h3> Usuarios</h3>
-<a routerLink="../userlist" routerLinkActive="active" class="nav-link" >Volver</a>
+
+<!--tabla de tipo reducido (small)-->
 <table class = "table table-sm">
+    <!--cabecera de tabla table head-->
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Nombre</th>
             <th>Email</th>
-            <th>Options</th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <!-- El bucle recorre cada usuario de users-->
@@ -45,7 +67,8 @@
             <td>{{u.nombre}}</td>
             <td>{{u.email}}</td>
             <td>
-                <!--Estos botones llaman a los métodos definidos en el .ts del componente user-list-->
+                <!--Estos botones llaman a los métodos update(actualizar) y delete(borrar) definidos en el .ts 
+                    del componente user-list-->
                 <button (click) = "updateUser(u.id)" class = "btn btn-info"> Update</button>
                 <button (click) = "deleteUser(u.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
             </td>

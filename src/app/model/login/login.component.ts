@@ -1,22 +1,27 @@
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+//se importan los componentes que se usan en éste archivo ts
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user/user';
 import { UserService } from '../user/user.service';
 
+//ésto define los archivos del componente
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+//se exporta la clase para que la usen otros componentes
 export class LoginComponent {
 
+  //atributos dela clase login
   email!: string;
   contrasena!: string;
   user: User = new User();
-  estaHabilitado: boolean = false;
+  mensaje: string = "";
     
+  //el constructor pone a disposición las funcionalidades de router, activated route y eduService
   constructor(
     public userService: UserService,
     private activatedRoute: ActivatedRoute,
@@ -25,22 +30,17 @@ export class LoginComponent {
     
    
   onSubmit(form: NgForm) {
-    //Recogemos el ID que nos llega en la url desde el formulario
-    //this.email = this.activatedRoute.snapshot.params['email'];
+    //asigno los datos del formulario como atributos de un posible usuario
     console.log(this.email = this.user.email);
     console.log(this.contrasena = this.user.contrasena)
-    //Utilizamos el método de UserService para obtener usuario
+    //Utilizamos el método de UserService para obtener el usuario buscando el usuario y la contraseña juntos
     this.userService.findByEmailAndContrasena(this.email, this.contrasena).subscribe(
-      user => {
+      user => {//si hay coincidencia, se redirige a la lista de usuarios con el menu para editar
         this.user = user;
-        if (user.email && user.contrasena){
-          console.log(user);
-          this.estaHabilitado = true;
-          this.router.navigate(['/userlist']);}
+        this.router.navigate(['/createuser']);
         
-      }, 
-      error => {console.log(this.user.email = "email incorrecto"); 
-      console.log(this.user.contrasena = "contraseña incorrecta")});
+      }, //si no existe el usuario habrá un error y se muestra el mensaje de error
+      error => {console.log(this.mensaje ="Usuario o contraseña Incorrecta")});
     
   }
 }

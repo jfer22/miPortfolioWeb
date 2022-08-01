@@ -1,10 +1,11 @@
+//se importan los componentes que se usan en éste archivo ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user';
  
-@Injectable({
-  providedIn: 'root'
+@Injectable({//Decorador que marca una clase como disponible para ser provista e inyectada como una dependencia
+  providedIn: 'root'//determina que inyectores proveerán el inyectable
 })
 export class UserService {
   //Endpoint del Backend
@@ -21,31 +22,29 @@ export class UserService {
     return this.httpClient.get<User[]>(`${this.backendURL}/ver/personas`);
   }
 
-  //POST
+  //POST para generar un nuevo usuario
   createUser(user: User): Observable<Object>{
     return this.httpClient.post(`${this.backendURL}/new/persona`, user);
   }
 
-  //PUT
+  //PUT para actualizar los datos de un usuario usando el id
   updateUser(id: number, user: User): Observable<Object>{
     return this.httpClient.put(`${this.backendURL}/update/${id}`, user);
   }
  
-  //DELETE
+  //DELETE para borrar un Usuario usando el id
   deleteUser(id: number): Observable<Object>{
     return this.httpClient.delete(`${this.backendURL}/deleteUser/${id}`);
   }
 
-  //GET UN SOLO CLIENTE
+  //GET UN SOLO CLIENTE para buscar un Usuario usando el id
   getUserById(id: number): Observable<User>{
     return this.httpClient.get<User>(`${this.backendURL}/update/${id}`);
   }
 
-  //GET UN SOLO CLIENTE
+  //GET para buscar un usuario que coincida con el email y la contraseña al mismo tiempo
   findByEmailAndContrasena(email: String, contrasena: String): Observable<User>{
     return this.httpClient.get<User>(`${this.backendURL}/login/${email}/${contrasena}`);
   }
-
-  
-  
+ 
 }

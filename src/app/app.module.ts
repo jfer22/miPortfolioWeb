@@ -17,8 +17,12 @@ import { UpdateExpComponent } from './model/update-exp/update-exp.component';
 import { UpdateEduComponent } from './model/update-edu/update-edu.component';
 import { HabilidadesComponent } from './model/habilidades/habilidades.component';
 
+//Una clase Angular Module describe como las partes de la aplicación encajan juntas. Cada aplicación tiene 
+//por lo menos un Angular module, el módulo raiz que uno carga como una instrucción inicial que habilita la 
+//introducción del resto del programa (bootstrap) para lanzar la aplicación. Se puede llamar como uno quierat. 
+//El nombre convencional es AppModule.
 @NgModule({
-  declarations: [
+  declarations: [// los componentes individuales de la aplicación
     AppComponent,
     UserListComponent,
     CreateUserComponent,
@@ -34,7 +38,9 @@ import { HabilidadesComponent } from './model/habilidades/habilidades.component'
     HabilidadesComponent,
     
   ],
-  imports: [
+  imports: [//El array imports del modulo  aparece exclusivamente en el objeto metadata @NgModule. 
+  //Este le informa a Angular sobre otros módulos específicos de Angular — todos ellos clases decoradas con
+  // @NgModule — que la aplicación necesita para funcionar adecuadamente.
     BrowserModule,
     AppRoutingModule,
     FormsModule,

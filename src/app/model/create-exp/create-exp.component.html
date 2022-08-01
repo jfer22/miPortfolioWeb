@@ -1,41 +1,58 @@
+<!--Formulario para cargar un nuevo item de Experiencia y mostrar los items existentes en forma de 
+    lista con botones para editarlos o borrarlos-->
+<!--El ngSumbit ejecuta el método onSubmitForm cuando se produce un evento del tipo "submit",
+es decir, cuando se presiona el botón "Enviar" definido como tipo submit-->
+<!--Este método (onSubmitForm), envia al backend el item de Experiencia para grabarlo en la
+base de datos-->
+<!--Los datos en el formulario se intercambian con el archivo ts cuando se realiza el submit-->
+<!--Después de enviar el nuevo valor, vuelve a la lista de usuarios usando routerLink-->
+
 <!--Usamos Binging de angular para llamar al método del .ts asociado-->
 <!--La sintaxis [()] BananaInBox es un Two-Way Binding-->
-<form (ngSubmit) = "onSubmitForm()">
-     
+
+<!--Barra de navegación-->
+<div class="container">
+    <app-user-list></app-user-list>
+</div>
+
+<!--Formulario para cargar nuevo item de Experiencia-->
+<form (ngSubmit)="onSubmitForm()">
+
     <div class="form-group">
-        <label> Crear/Editar Experiencia</label>
-        <input type="text" class ="form-control" id = "experiencia"
-            [(ngModel)] = "exp.experiencia" name = "experiencia">
+        <label> Agregar item de Experiencia</label>
+        <input type="text" class="form-control" id="experiencia" [(ngModel)]="exp.experiencia" name="experiencia">
     </div>
- 
-    <button class = "btn btn-success" type ="submit">Submit</button>
-    <a routerLink="../userlist" routerLinkActive="active" class="nav-link" >Volver</a>
- 
+
+    <button class="btn btn-success" type="submit">Enviar</button>
+
 </form>
 
+<!--Lista de items de Experiencias existentes-->
 <h3> Experiencias</h3>
 
-<table class = "table table-sm">
+<!--tabla de tipo reducido (small)-->
+<table class="table table-sm">
+    <!--cabecera de tabla table head-->
     <thead>
         <tr>
             <th>ID</th>
             <th>Experiencia</th>
-           
+            <th>Opciones</th>
         </tr>
     </thead>
-    <!-- El bucle recorre cada usuario de users-->
-    <!-- Este archivo html está asociado a su respectivo .ts -->
-    <!-- users es una propiedad definida en el .ts users: User[]-->
+    <!-- El bucle recorre cada item de Experiencia-->
+    <!--cuerpo de tabla table body-->
     <tbody>
-        <tr *ngFor = "let u of exps">
-            <!-- {{}} Es interpolación para acceder a los campos -->
+        <tr *ngFor="let u of exps">
+            <!--  {{}} Interpolación (string interpolation) para acceder a los valores en el archivo ts-->
+            <!--table data(datos en tabla)-->
             <td>{{u.id}}</td>
             <td>{{u.experiencia}}</td>
-            
+
             <td>
-                <!--Estos botones llaman a los métodos definidos en el .ts del componente user-list-->
-                <button (click) = "updateExp(u.id)" class = "btn btn-info"> Update</button>
-                <button (click) = "deleteExp(u.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <!--Estos botones llaman a los métodos update(actualizar) y delete(borrar) definidos en el .ts-->
+                <button (click)="updateExp(u.id)" class="btn btn-info"> Actualizar</button>
+                <button (click)="deleteExp(u.id)" class="btn btn-danger" style="margin-left: 10px"> Borrar</button>
             </td>
         </tr>
     </tbody>

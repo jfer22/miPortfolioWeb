@@ -1,17 +1,24 @@
+<!--Vista principal del Portafolio-->
+<!--Imagen de fondo en contenedor-->
 <div class="container" style="background-image: url('./assets/img/7678.jpg_300.jpg'); width:1200px; height: 300px;">
+    <!--a tipo barra para ubicar logo-->
     <a class="navbar-brand" href="#">
+        <!--Logo de ArgentinaPrograma-->
         <img alt="My image name" src="./assets/img/FB-Argentina-Programa-Plan.jpg" style="width: 20%">
         <h5 style="color:aliceblue">  Argentina Programa #YoProgramo</h5>
     </a>
-    <button style="margin-left: 350px; margin-top: -100px;" class = "btn btn-success">
+    <!--botón de login para editar datos-->
+    <button style="float: right; margin-top: 10px; margin-right: 10px;" class = "btn btn-success">
         <a routerLink="../login"  >Login</a>
     </button>
 </div>
+<!--Foto del sospechoso :) -->
 <a>
-    <img alt="My image name" src="./assets/img/WhatsApp Image 2022-07-01 at 11.54.10 AM.jpeg" 
+    <img alt="My image name" src="./assets/img/IMG_20220730_142256107.jpg" 
     style="width: 20%; border-radius: 50%;
-    margin-top: -100px; margin-left: 30px;">
+    margin-top: -100px; margin-left: 30px;"> <!--border-radius en 50 hace la foto circular-->
 </a>
+<!--Tabla generada para ubicar el texto en una columna a la derecha-->
 <header id="header" style="margin-top: -50px">
     <div class="container">
         <div class="row">
@@ -34,8 +41,9 @@
         </div>
     </div>
 </header>
+
+<!--Listas de Experiencias y Educación obtenidas desde sus componentes con el router-->
 <div class="container">
-    <!--<app-header></app-header>-->
     <app-exp-list></app-exp-list>
     <app-edu-list></app-edu-list>
     <app-habilidades></app-habilidades>

@@ -1,15 +1,17 @@
 
 <h3> Experiencias</h3>
-
+<!--tabla de tipo reducido (small)-->
 <table class = "table table-sm">
     
-    <!-- El bucle recorre cada usuario de users-->
+    <!-- El bucle recorre cada item de Experiencia-->
     <!-- Este archivo html está asociado a su respectivo .ts -->
-    <!-- users es una propiedad definida en el .ts users: User[]-->
+    <!-- exps es una propiedad definida en el .ts exps: Exp[]-->
+    <!--cuerpo de tabla table body-->
     <tbody>
+        <!--table row(fila)-->
         <tr *ngFor = "let u of exps">
             <!-- {{}} Es interpolación para acceder a los campos -->
-            
+            <!--table data(datos en tabla)-->
             <td>{{u.experiencia}}</td>
         </tr>
     </tbody>
