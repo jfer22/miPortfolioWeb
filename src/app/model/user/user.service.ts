@@ -9,7 +9,7 @@ import { User } from './user';
 })
 export class UserService {
   //Endpoint del Backend
-  private backendURL: string = "http://localhost:8080";
+  private backendURL: string = "https://lit-earth-29157.herokuapp.com:8080";
    
   constructor(
     //HttpClient para proporcionar métodos que reciben datos del backend
