@@ -9,7 +9,7 @@ import { Exp } from './exp';
 })
 export class ExpService {//se exporta la clase para que la usen otros componentes
   //Endpoint del Backend
-  private backendURL: string = "http://localhost:8080";
+  private backendURL: string = "https://lit-earth-29157.herokuapp.com:8080";
    
   constructor(
     //HttpClient para proporcionar métodos que reciben datos del backend
